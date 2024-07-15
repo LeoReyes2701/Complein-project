@@ -5,7 +5,7 @@ const postRouter = require('express').Router();
 
 postRouter.post('/',upload.single('image'),  async (request, response) => {
   const file = request.file;
-  const { stars, title, rest, description, User } = request.body;
+  const { stars, title, rest, description } = request.body;
 
   //Como debe quedar mongo
   const newPost = new Post({
@@ -14,8 +14,14 @@ postRouter.post('/',upload.single('image'),  async (request, response) => {
     rest,
     description,
     image: file.filename,
-    User,
-  })
+    User: request.user.id,
+  });
+  const user = await User.findById(request.user.id);
+
+  user.posts = user.posts.concat(newPost.id);
+
+  await user.save();
+
 
   const elem = await newPost.save();
 
@@ -24,7 +30,7 @@ postRouter.post('/',upload.single('image'),  async (request, response) => {
 });
 
 postRouter.get('/',  async (request, response) => {
-  const postList = await Post.find({});
+  const postList = await Post.find({}).populate('User');
   return response.status(201).json(postList)
 });
 

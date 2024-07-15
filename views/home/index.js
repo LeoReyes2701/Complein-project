@@ -1,10 +1,16 @@
 let posts = [];
 const list = document.querySelector('#list')
 let corazonIconClass = 'fa-regular fa-heart fa-2x';
+const user = JSON.parse(localStorage.getItem('currentUser'));
+console.log(user);
 
 const renderPosts = () => {
   list.innerHTML = '';
+  let isLiked = corazonIconClass
   posts.forEach(post => {
+    if (post.likes.includes(user.id)) {
+        isLiked = 'fa-solid fa-heart fa-2x text-red-500'
+    }
     // Crear elemento
     const li = document.createElement('li');
     li.id = post.id;
@@ -15,13 +21,13 @@ const renderPosts = () => {
             <div id="halfs" class="flex flex-row h-full">
                 <div id="left" class=" w-1/5 p-2">
                     <div id="profile-pic" class="py-1">
-                        <img id="profile-pic-display" class="rounded-full h-24 w-auto mx-auto" src="${post.profilePic ? post.profilePic : '/uploads/usuario-default.png'}" alt="foto-perfil">
+                        <img id="profile-pic-display" class="rounded-full size-14 mx-auto" src="${post?.User?.profilePic ? `/uploads/${post.User.profilePic}` : '/uploads/usuario-default.png'}" alt="foto-perfil">
                     </div>
                     <div id="interactions">
                         <div id="likes" class="flex flex-row h-8 gap-1 items-center justify-center mt-2">
                             <p class="font-bold text-2xl md:text-xl">${arrayLikes}</p>
                             <button class="corazon">
-                                <i id='corazon-icono' class="${corazonIconClass}"></i>
+                                <i id='corazon-icono' class="${isLiked}"></i>
                             </button>
                         </div>
                         <div id="comments" class="flex flex-row h-8  gap-1 items-center justify-center mt-2">
@@ -66,14 +72,6 @@ list.addEventListener('click', async e => {
         console.log(data);
         posts = posts.map(post => post.id === data.postLiked.id ? data.postLiked : post);
         console.log('antes:', corazonIcon.classList);
-        if (data.liked) {
-            console.log('jejee');
-            corazonIconClass = 'fa-solid fa-heart fa-2x text-red-500'
-        } else {
-            console.log('lili');
-             corazonIconClass = 'fa-regular fa-heart fa-2x'
-        }
-        console.log('despues:', corazonIcon.classList);
         renderPosts();
     }
 
@@ -98,7 +96,7 @@ list.addEventListener('click', async e => {
         renderPosts();
         
     } catch (error) {
-
+        console.error(error)
         if (error.response.status === 401) {
             window.location.pathname = '/login'
         }

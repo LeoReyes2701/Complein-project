@@ -18,7 +18,8 @@ const { MONGO_URI } = require('./config');
 
 (async() =>{
     try {
-        await mongoose.connect(MONGO_URI)
+        await mongoose.connect(MONGO_URI);
+        console.log(MONGO_URI);
         console.log('Conectado a Mongooo');
     } catch (error) {
         console.log(error);

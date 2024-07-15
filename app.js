@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Rutas front-end
-app.use('/signup', express.static(path.resolve('views', 'sign-up')))
+app.use('/', express.static(path.resolve('views', 'sign-up')))
 app.use('/login', express.static(path.resolve('views', 'login')))
 app.use('/home', express.static(path.resolve('views', 'home')))
 app.use('/post/:id', express.static(path.resolve('views', 'comentarios')))

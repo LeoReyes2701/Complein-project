@@ -8,10 +8,9 @@ const getUserInfo = async () => {
         const { data } = await axios.get(`/api/users/${currentUser.id}`);
         console.log(data);
 
-        // Actualizar los campos del formulario con los datos del usuario
         document.querySelector('#name').value = data.name;
         document.querySelector('#email').value = data.email;
-        document.querySelector('#password').value = data.password; // Es recomendable no llenar el campo de password
+        document.querySelector('#password').value = data.password;
         document.querySelector('#phone').value = data.phone;
         document.querySelector('#username').value = data.username;
         if (data.profilePic) {
@@ -20,10 +19,6 @@ const getUserInfo = async () => {
         
     } catch (error) {
         console.error(error);
-        // createNotification(true, error.response.data);
-        // setTimeout(() => {
-        //     notification.innerHTML = '';
-        // }, 4000);
     }
 };
 

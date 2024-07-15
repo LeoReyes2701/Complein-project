@@ -15,7 +15,7 @@ const renderPosts = () => {
             <div id="halfs" class="flex flex-row h-full">
                 <div id="left" class=" w-1/5 p-2">
                     <div id="profile-pic" class="py-1">
-                        <img id="profile-pic-display" class="rounded-full h-24 w-auto mx-auto" src="${post.profilePic ? post.profilePic : '/uploads/usuario-default.png'}" alt="foto-perfil">
+                        <img id="profile-pic-display" class="rounded-full h-24 w-auto mx-auto" src="${user.profilePic ? user.profilePic : '/uploads/usuario-default.png'}" alt="foto-perfil">
                     </div>
                     <div id="interactions">
                         <div id="likes" class="flex flex-row h-8 gap-1 items-center justify-center mt-2">

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Login</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+
+  <body class="flex font-poppins items-center justify-center">
+
+    <div id="notification" class="fixed w-40 top-0 right-4 h-11  items-center p-4 mb-4 text-sm text-blue-800 rounded-lg"></div>
+
+    <div class="h-screen w-screen flex justify-center items-center dark:bg-gray-900">
+    <div class="grid gap-8">
+      <div
+        id="back-div"
+        class="bg-gradient-to-r from-blue-500 to-purple-500 rounded-[26px] m-4"
+      >
+        <div
+          class="border-[20px] border-transparent rounded-[20px] dark:bg-gray-900 bg-white shadow-lg xl:p-10 2xl:p-10 lg:p-10 md:p-10 sm:p-2 m-2">
+          <div class="flex justify-center">
+            <i class="fa-solid fa-hand-point-up fa-4x" style="color: #df4353;"></i>
+          </div>
+
+          <h1 class="pt-8 pb-6 font-bold dark:text-gray-400 text-5xl text-center cursor-default">
+            Inicia sesion
+          </h1>
+          <form id="form" action="#" method="post" class="space-y-4">
+            <div class="h-20">
+                <!-- Esto es el correo -->
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ingrese su correo</label>
+                <input type="email" name="email" id="input-email" placeholder="nombre@dominio.com" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg
+
+                focus:outline-indigo-700
+
+                 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required="">
+                <!-- Este texto sale si no el nombre es valido -->
+                <p class="info hidden text-sm font-medium text-red-500">Correo invalido, reviselo</p>
+            </div>
+
+
+            <div class="h-28">
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ingrese su contraseña</label>
+              <input type="password" name="password" id="input-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 
+              
+              focus:outline-indigo-700
+              
+              block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white " required="">
+
+              <!-- Esto sale si esta mala la contra -->
+              <p class="info hidden font-medium text-sm text-red-500">Debe Tener al menos 8 caracteres<br>
+                  Debe tener al menos una letra y un número.
+              </p> 
+              
+                            
+            </div>
+
+            <a
+              class="group text-blue-400 transition-all duration-100 ease-in-out"
+              href="#"
+            >
+              <span
+                class="bg-left-bottom bg-gradient-to-r text-sm from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out"
+              >
+                Forget your password?
+              </span>
+            </a>
+            <button type="submit" disabled id="login-btn" class="w-full disabled:bg-indigo-950 disabled:opacity-45 disabled:cursor-not-allowed bg-slate-600 hover:bg-slate-500 transition-all duration-200 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Iniciar sesión</button>
+                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            No tienes una cuenta?  <a href="/signup" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Registrate acá</a>
+                        </p>
+          </div>
+        </form>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <script type="module" src="index.js"></script>
+    <script type="module" src="/components/notification.js"></script>
+  </body>
+</html>

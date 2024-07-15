@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' font-size='80' font-weight='bold' fill='black' font-family='Arial, sans-serif'%3EC%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Complein</title>
+    
+</head>
+<body>
+
+    <div id="notification" class="fixed w-40 top-0 h-11 items-center p-4 mb-4 text-sm text-red-800 rounded-lg">
+
+    </div>
+
+    <section class="bg-gray-50 dark:bg-gray-900 flex justify-center">
+
+        <!-- Esto es el logo de arriba -->
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen md:w-3/5 md:gap-4 md:flex md:flex-row lg:py-0">
+
+            <i class="fa-solid fa-hand-point-up fa-5x" style="color: #df4353;"></i>
+
+            <div class="w-full transform scale-90 bg-white rounded-2xl shadow dark:border md:mt-0 xl:p-0 dark:bg-gray-800 dark:border-gray-700 border-8 border-purple-500 ">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-gray-900 md:text-2xl dark:text-white">
+                        Registrate!
+                    </h1>
+                    <form id="form" class="space-y-2 md:space-y-4">
+                        <div>
+                            <!-- Esto es el nombre -->
+                            <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre y Apellido</label>
+                            <input type="nombre" name="nombre" id="nombre-apellido" placeholder="Nombre Apellido" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg
+                            focus:outline-indigo-700
+                            block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                            <!-- Este texto sale si no el nombre es valido -->
+                            <p class="info hidden font-medium text-red-500">Tanto el nombre como el apellido deben comenzar en mayuscula y estar separados por un espacio.</p>
+                        </div>
+                        <div>
+                            <!-- Esto es el correo -->
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>
+                            <input type="email" name="email" id="email" placeholder="nombre@dominio.com" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg
+
+                            focus:outline-indigo-700
+
+                             block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                            <!-- Este texto sale si no el nombre es valido -->
+                            <p class="info hidden font-medium text-red-500">Correo invalido, reviselo</p>
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 
+                            
+                            focus:outline-indigo-700
+                            
+                            block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white h ">
+
+                            <!-- Esto sale si esta mala la contra -->
+                            <p class="info hidden font-medium text-red-500">Debe Tener al menos 8 caracteres<br>
+                                Debe tener al menos una letra y un número.
+                            </p> 
+                            
+                            
+                        </div>
+
+                        <div>
+                            <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Repite la contraseña</label>
+                            <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 
+                            
+                            focus:outline-indigo-700
+                             block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+
+                            <!-- Esto sale si la contra no coincide -->
+                            <p class="info hidden font-medium text-red-500">La contraseña no coincide</p> 
+                        </div>
+                        <div>
+                            <div class="">
+                                <label for="phone-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero de telefono</label>
+                                <div class="relative flex flex-row gap-1"> 
+
+                                    
+                                    <!-- Logo de telefono
+                                    <div class="inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
+                                        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
+                                            <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
+                                        </svg>
+                                    </div> -->
+
+                                    <!-- Prefijo que no se llama prefijo -->
+                                    <div class="max-w-sm mx-auto">
+                                        <select id="prefijo" class="bg-gray-50 border w-1/10 border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-indigo-700 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                        <option selected>0414</option>
+                                        <option>0424</option>
+                                        <option>0412</option>
+                                        <option>0416</option>
+                                        <option>0426</option>
+                                        </select>
+                                    </div>
+  
+                                    <!-- Todo esto es lo de numero de telefono -->
+                                    <div class="flex flex-col flex-grow">
+                                    <input type="text" id="phone-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+
+                                     focus:outline-indigo-700
+                                     
+                                      block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white " placeholder="123-4567">
+                                        
+                                      <p class="info hidden font-medium text-red-500">Formato invalido porfavor revisar</p> 
+                                    </div>
+
+                                </div>
+
+                                <div class="mt-3">
+                                    <!-- Username -->
+                                    <input type="username" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 
+                                    
+                                    focus:outline-indigo-700
+                                    
+                                    block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Nombre de Usuario">
+                                    <p class="info hidden font-medium text-red-500"></p> 
+                                </div>
+
+                            </div>
+                        </div>
+                        <button type="submit" disabled id="create-btn" class="w-full disabled:bg-indigo-950 disabled:opacity-45 disabled:cursor-not-allowed bg-slate-600 hover:bg-slate-500 transition-all duration-200 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Crea tu cuenta</button>
+                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            Ya tienes una cuenta? <a href="/login/" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Inicia sesion acá</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </section>
+      <script type="module" src="index.js"></script>
+      <script type="module" src="/components/notification.js"></script>
+</body>
+</html>

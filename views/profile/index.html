@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- ACA ESTA LA BARRA DE NAVEGACION -->
+    <nav id="nav-bar" class="bg-white dark:bg-gray-900 fixed w-full z-20 h-16 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    </nav>
+
+    <div id="main" class="h-screen pt-24">
+        <div id="profile-pic-name" class="flex flex-col gap-2 mb-2">
+            <img id="profile-pic-display" class="rounded-full h-24 w-auto mx-auto" src="/uploads/default-profile.png" alt="foto-perfil">
+            <div id="profile-info" class="flex flex-col gap-2 mx-auto border-2 border-gray-500 rounded-md p-4 md:w-3/6">   
+                <h1 class="font-semibold">Foto de Perfil</h1>
+                <input id="profile-pic-input" type="file">               
+                <h1 class="font-semibold">Nombre</h1>
+                <input id="name" type="text" class="border p-1">    
+                <h1 class="font-semibold">Email</h1>
+                <input id="email" type="text" class="border p-1">
+                <h1 class="font-semibold">Password</h1>
+                <input id="password" type="password" class="border p-1">
+                <h1 class="font-semibold">Phone</h1>
+                <input id="phone" type="text" class="border p-1">
+                <h1 class="font-semibold">Username</h1>
+                <input id="username" type="text" class="border p-1">
+                
+                <button id="edit-btn" class="bg-indigo-400 hover:bg-indigo-500 p-2 rounded-md">
+                    <h1>Editar</h1>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/components/nav.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
